@@ -16,4 +16,19 @@ public class SolutionTest {
         Assert.assertEquals(first, solution.getFirstSolution(), "first solution is unexpectedly changed");
         Assert.assertEquals(second, solution.getSecondSolution(), "second solution is unexpectedly changed");
     }
+
+    @Test(expectedExceptions = { IllegalArgumentException.class })
+    public void testThrowsByCreateWithFirstNaN () {
+        new Solution(Double.NaN, 0.0);
+    }
+
+    @Test(expectedExceptions = { IllegalArgumentException.class })
+    public void testThrowsByCreateWithSecondNaN () {
+        new Solution(0.0, Double.NaN);
+    }
+
+    @Test(expectedExceptions = { IllegalArgumentException.class })
+    public void testThrowsByCreateWithBothArgumentsNaN () {
+        new Solution(Double.NaN, Double.NaN);
+    }
 }
