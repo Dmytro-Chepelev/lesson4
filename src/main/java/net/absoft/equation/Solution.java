@@ -6,6 +6,14 @@ public class Solution {
 
     public Solution (double firstSolution, double secondSolution)
     {
+        if (Double.isNaN(firstSolution)) {
+            throw new IllegalArgumentException("solution can't be NaN");
+        }
+
+        if (Double.isNaN(secondSolution)) {
+            throw new IllegalArgumentException("solution can't be NaN");
+        }
+
         this.firstSolution = firstSolution;
         this.secondSolution = secondSolution;
     }
