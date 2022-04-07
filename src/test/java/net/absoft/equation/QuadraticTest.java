@@ -5,12 +5,18 @@ import org.testng.annotations.Test;
 
 public class QuadraticTest {
 
+    private Quadratic quadraticBilder ()
+    {
+        return new Quadratic ();
+        // return new QuadraticFast ();
+    }
+
     @Test
     public void testWithOneSolution () {
         long a = 3, b = -18, c = 27;
         double x = 3.0;
 
-        Quadratic quadratic = new Quadratic ();
+        Quadratic quadratic = quadraticBilder ();
         Solution solution = quadratic.getSolution(a, b, c);
 
         Assert.assertNotNull(solution, "getSolution() can't compute result");
@@ -29,7 +35,7 @@ public class QuadraticTest {
         double x1 = -1.0, x2 = 5.0;
         OrderedPare expectedValue = new OrderedPare(x1, x2);
 
-        Quadratic quadratic = new Quadratic ();
+        Quadratic quadratic = quadraticBilder ();
         Solution solution = quadratic.getSolution(a, b, c);
 
         Assert.assertNotNull(solution, "getSolution() can't compute result");
@@ -45,7 +51,7 @@ public class QuadraticTest {
     public void testWithoutSolution () {
         long a = 3, b = -4, c = 2;
 
-        Quadratic quadratic = new Quadratic ();
+        Quadratic quadratic = quadraticBilder ();
         Solution solution = quadratic.getSolution(a, b, c);
 
         Assert.assertNull(solution, "getSolution() compute result, but must not do it");
@@ -55,7 +61,7 @@ public class QuadraticTest {
     public void testNonQuadraticEquation () {
         long a = 0, b = 1, c = 1;
 
-        Quadratic quadratic = new Quadratic ();
+        Quadratic quadratic = quadraticBilder ();
         Solution solution = quadratic.getSolution(a, b, c);
     }
 
