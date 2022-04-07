@@ -7,9 +7,9 @@ public class OrderedPare {
 
         private final double big, little;
 
-        public OrderedPare(double x, double y) {
-            big = Math.max(x,y);
-            little = Math.min(x,y);
+        public OrderedPare(double any1, double any2) {
+            big = Math.max(any1,any2);
+            little = Math.min(any1,any2);
         }
 
         public boolean isEqual(OrderedPare duo) {
