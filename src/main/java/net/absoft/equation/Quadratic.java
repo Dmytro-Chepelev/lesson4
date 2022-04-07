@@ -14,8 +14,8 @@ public class Quadratic {
         double x1, x2;
 
         if (discriminant > 0.0) {
-            x1 = (-b + Math.sqrt(discriminant)) / (2.0 * a);
-            x2 = (-b - Math.sqrt(discriminant)) / (2.0 * a);
+            x1 = (-b - Math.sqrt(discriminant)) / (2.0 * a);
+            x2 = (-b + Math.sqrt(discriminant)) / (2.0 * a);
         }
         else if (discriminant == 0.0) {
             x1 = -b / (2.0 * a);
@@ -25,6 +25,5 @@ public class Quadratic {
             return null;
         }
         return new Solution (x1, x2);
-
     }
 }
