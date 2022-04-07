@@ -1,8 +1,5 @@
 package net.absoft.equation;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
 public class OrderedPare {
 
         private final double big, little;
@@ -16,7 +13,4 @@ public class OrderedPare {
             if (duo == null) return false;
             return this.big == duo.big && this.little == duo.little;
         }
-
-
-
 }

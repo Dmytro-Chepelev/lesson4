@@ -16,8 +16,8 @@ public class OrderedPareTest {
     public void testIsEqualWithCopyReverseAndOther ()
     {
         OrderedPare original = new OrderedPare (1, 2);
-        OrderedPare reverse = new OrderedPare (2, 1);
         OrderedPare copy = new OrderedPare (1, 2);
+        OrderedPare reverse = new OrderedPare (2, 1);
         OrderedPare other = new OrderedPare (3, 4);
 
         Assert.assertTrue( original.isEqual(reverse)
