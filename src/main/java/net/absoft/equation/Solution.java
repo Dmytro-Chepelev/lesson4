@@ -2,27 +2,32 @@ package net.absoft.equation;
 
 public class Solution {
 
-    private final double firstSolution, secondSolution;
+    /*
+        В соответствии с ТЗ:
+            ... Результат: обʼєкт Solution з полями x1 = 5, x2 = -1  ...
+            ... обʼєкт класу Solution (структура даних, що зберігає 2 цілих числа з коренями рівняння) ...
+     */
+    public final double x1, x2;
 
-    public Solution (double firstSolution, double secondSolution)
+    public Solution (double firstValue, double secondValue)
     {
-        if (Double.isNaN(firstSolution)) {
+        if (Double.isNaN(firstValue)) {
             throw new IllegalArgumentException("solution can't be NaN");
         }
 
-        if (Double.isNaN(secondSolution)) {
+        if (Double.isNaN(secondValue)) {
             throw new IllegalArgumentException("solution can't be NaN");
         }
 
-        this.firstSolution = firstSolution;
-        this.secondSolution = secondSolution;
+        this.x1 = firstValue;
+        this.x2 = secondValue;
     }
 
     public double getFirstSolution () {
-        return this.firstSolution;
+        return this.x1;
     }
 
     public double getSecondSolution () {
-        return this.secondSolution;
+        return this.x2;
     }
 }
