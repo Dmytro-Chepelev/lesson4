@@ -7,16 +7,16 @@ public class QuadraticTest {
 
     @Test
     public void testWithOneSolution () {
-        long a = 1, b = -6, c = -7;
-        double x = 7.0;
+        long a = 3, b = -18, c = 27;
+        double x = 3.0;
 
         Quadratic quadratic = new Quadratic ();
         Solution solution = quadratic.getSolution(a, b, c);
 
         Assert.assertNotNull(solution, " ");
 
-        Assert.assertEquals(x, solution.getFirstSolution(), "");
-        Assert.assertEquals(x, solution.getSecondSolution(), "");
+        Assert.assertEquals(solution.getFirstSolution(), x, "");
+        Assert.assertEquals(solution.getSecondSolution(), x,"");
     }
 
     @Test
@@ -35,7 +35,7 @@ public class QuadraticTest {
 
     @Test
     public void testWithoutSolution () {
-        long a = 1, b = -4, c = -5;
+        long a = 3, b = -4, c = 2;
 
         Quadratic quadratic = new Quadratic ();
         Solution solution = quadratic.getSolution(a, b, c);
