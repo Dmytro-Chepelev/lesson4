@@ -11,19 +11,23 @@ public class Quadratic {
 
     private Solution getSolutionAtDouble (double a, double b, double c) {
         double discriminant = b * b - 4.0 * a * c;
-        double x1, x2;
+
+        Solution solution;
 
         if (discriminant > 0.0) {
-            x1 = (-b - Math.sqrt(discriminant)) / (2.0 * a);
-            x2 = (-b + Math.sqrt(discriminant)) / (2.0 * a);
+            double root = Math.sqrt(discriminant);
+            solution = new Solution (
+                    (-b - root) / (2.0 * a) ,
+                    (-b + root) / (2.0 * a) );
         }
         else if (discriminant == 0.0) {
-            x1 = -b / (2.0 * a);
-            x2 = x1;
+            double singleSolution = -b / (2.0 * a);
+            solution = new Solution (singleSolution, singleSolution);
         }
         else { // discriminant < 0.0
-            return null;
+            solution = null;
         }
-        return new Solution (x1, x2);
+
+        return solution;
     }
 }
