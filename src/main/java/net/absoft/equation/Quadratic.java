@@ -6,28 +6,24 @@ public class Quadratic {
         if (a == 0) {
             throw new IllegalArgumentException ("in Quadratic equation first argument 'a' must be nonzero");
         }
-        return getSolutionAtDouble (a, b, c);
+
+        double discriminant = computeDiscriminant(a, b, c);
+
+        return discriminant < 0.0
+                ? null
+                : new Solution ( computeFirstRoot  (a, b, discriminant),
+                                 computeSecondRoot (a, b, discriminant));
     }
 
-    private Solution getSolutionAtDouble (double a, double b, double c) {
-        double discriminant = b * b - 4.0 * a * c;
+    private double computeDiscriminant (double a, double b, double c) {
+        return b * b - 4.0 * a * c;
+    }
 
-        Solution solution;
+    private double computeFirstRoot(double a, double b, double discriminant) {
+        return ( -b - Math.sqrt(discriminant) ) / (2.0 * a);
+    }
 
-        if (discriminant > 0.0) {
-            double root = Math.sqrt(discriminant);
-            solution = new Solution (
-                    (-b - root) / (2.0 * a) ,
-                    (-b + root) / (2.0 * a) );
-        }
-        else if (discriminant == 0.0) {
-            double singleSolution = -b / (2.0 * a);
-            solution = new Solution (singleSolution, singleSolution);
-        }
-        else { // discriminant < 0.0
-            solution = null;
-        }
-
-        return solution;
+    private double computeSecondRoot(double a, double b, double discriminant) {
+        return ( -b + Math.sqrt(discriminant) ) / (2.0 * a);
     }
 }
